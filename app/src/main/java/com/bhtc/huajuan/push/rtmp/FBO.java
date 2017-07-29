@@ -126,7 +126,7 @@ public class FBO {
     }
 
     public int drawFrame(int texId, int texWidth, int texHeight) {
-        // 因为没有开启内置美颜，此处纹理类型为 GL_TEXTURE_EXTERNAL_OES 
+        // 因为没有开启内置美颜，此处纹理类型为 GL_TEXTURE_EXTERNAL_OES
         if (!mEnable) {
             return texId;
         }

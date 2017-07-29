@@ -62,8 +62,6 @@ import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import us.pinguo.prettifyengine.PGPrettifySDK;
-
 public class StreamingBaseActivity extends BaseActivity implements
         View.OnLayoutChangeListener,
         StreamStatusCallback,
@@ -220,8 +218,6 @@ public class StreamingBaseActivity extends BaseActivity implements
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        prettifySDK = new PGPrettifySDK(this);
-
         if (Config.SCREEN_ORIENTATION == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
             mIsEncOrientationPort = true;
         } else if (Config.SCREEN_ORIENTATION == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
@@ -290,9 +286,6 @@ public class StreamingBaseActivity extends BaseActivity implements
         onBack = false;
         super.onResume();
         mMediaStreamingManager.resume();
-        if (prettifySDK == null) {
-            prettifySDK = new PGPrettifySDK(this);
-        }
     }
 
     @Override
@@ -303,10 +296,6 @@ public class StreamingBaseActivity extends BaseActivity implements
         mShutterButtonPressed = false;
         mHandler.removeCallbacksAndMessages(null);
         mMediaStreamingManager.pause();
-        if (prettifySDK != null) {
-            prettifySDK.release();
-            prettifySDK = null;
-        }
     }
 
     @Override
@@ -452,7 +441,6 @@ public class StreamingBaseActivity extends BaseActivity implements
     protected float mFilterTwo = 0.1f;
     protected float mFilterThree = 0.45f;
 
-    protected PGPrettifySDK prettifySDK;
     ByteBuffer buffer;
     byte[] bytes2;
     Lock lock = new ReentrantLock();

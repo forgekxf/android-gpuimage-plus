@@ -116,7 +116,6 @@ dependencies {
     compile project(':gpuimage')
     compile files('libs/pldroid-media-streaming-2.2.0.jar')
     compile 'com.bugtags.library:bugtags-lib:latest.integration'
-    compile(name:'PgPrettifyEngineNoSticker-release_1.6', ext:'aar')
 }
 
 afterEvaluate {
