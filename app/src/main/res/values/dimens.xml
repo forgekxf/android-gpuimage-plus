@@ -1,0 +1,140 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <!-- 分割线的高度-->
+    <dimen name="line_hight">1px</dimen>
+
+    <!-- 节操视频控制器头部内容区高度 -->
+    <dimen name="jiecao_video_height">48dp</dimen>
+
+    <!--视频气泡宽高-->
+    <dimen name="video_qipao_width">78dp</dimen>
+    <dimen name="video_qipao_height">100dp</dimen>
+
+    <dimen name="toolbar_height">56dp</dimen>
+
+    <dimen name="toolbar_title_size">17sp</dimen>
+
+    <dimen name="textsize_common_14">14sp</dimen>
+
+    <!--margin padding-->
+    <dimen name="margin_common_14">14dp</dimen>
+    <dimen name="margin_small_9">9dp</dimen>
+    <dimen name="margin_small_8">8dp</dimen>
+    <dimen name="margin_small_7">7dp</dimen>
+    <dimen name="margin_small_5">5dp</dimen>
+    <dimen name="margin_small_3">3dp</dimen>
+    <dimen name="margin_common_10">10dp</dimen>
+    <dimen name="margin_common_12">12dp</dimen>
+    <dimen name="margin_common_15">15dp</dimen>
+    <dimen name="margin_common_18">18dp</dimen>
+
+    <!--drawable padding-->
+    <dimen name="drawable_padding_5">5dp</dimen>
+    <dimen name="margin_common_20">20dp</dimen>
+    <dimen name="height_large_68">68dp</dimen>
+    <dimen name="height_large_75">75dp</dimen>
+    <dimen name="textsize_common_16">16sp</dimen>
+    <dimen name="textsize_small_9">9sp</dimen>
+    <dimen name="heigh_common_24">24dp</dimen>
+    <dimen name="height_common_40">40dp</dimen>
+    <dimen name="height_common_28">28dp</dimen>
+    <dimen name="height_common_50">50dp</dimen>
+    <dimen name="height_common_48">48dp</dimen>
+    <dimen name="heigh_common_14">14dp</dimen>
+    <dimen name="height_small_1px">1px</dimen>
+    <dimen name="height_common_45">45dp</dimen>
+    <dimen name="textsize_common_12">12sp</dimen>
+    <dimen name="margin_large_50">50dp</dimen>
+    <dimen name="height_small_0.5dp">0.5dp</dimen>
+    <dimen name="height_small_1dp">1dp</dimen>
+    <dimen name="margin_small_2">2dp</dimen>
+    <dimen name="margin_small_6">6dp</dimen>
+    <dimen name="margin_common_9">9dp</dimen>
+    <dimen name="margin_large_30">30dp</dimen>
+    <dimen name="textsize_common_24">24sp</dimen>
+    <dimen name="textsize_common_10">10sp</dimen>
+    <dimen name="margin_common_25">25dp</dimen>
+    <dimen name="margin_common_16">16dp</dimen>
+    <dimen name="height_common_32">32dp</dimen>
+    <dimen name="margin_small_4">4dp</dimen>
+    <dimen name="textsize_common_11">11sp</dimen>
+    <dimen name="height_dialog_confirm_140">140dp</dimen>
+    <dimen name="textsize_common_18">18sp</dimen>
+
+    <!-- 个人设置 -->
+    <dimen name="user_height_42">42dp</dimen>
+    <dimen name="user_height_50">50dp</dimen>
+    <dimen name="user_height_54">54dp</dimen>
+    <dimen name="user_height_81">81dp</dimen>
+    <dimen name="user_height_83">83dp</dimen>
+    <dimen name="margin_common_40">40dp</dimen>
+    <dimen name="height_common_70">70dp</dimen>
+    <dimen name="height_common_42">42dp</dimen>
+    <dimen name="margin_common_4">4dp</dimen>
+    <dimen name="margin_common_13">13dp</dimen>
+    <dimen name="margin_common_51">51dp</dimen>
+    <dimen name="margin_common_7">7dp</dimen>
+    <dimen name="margin_common_17">17dp</dimen>
+    <dimen name="height_common_20">20dp</dimen>
+    <dimen name="height_common_24">24dp</dimen>
+    <dimen name="height_common_58">58dp</dimen>
+    <dimen name="height_common_46">46dp</dimen>
+    <dimen name="margin_common_85">85dp</dimen>
+    <dimen name="height_common_80">80dp</dimen>
+    <dimen name="height_common_49">49dp</dimen>
+    <dimen name="height_common_36">36dp</dimen>
+    <dimen name="height_common_144">144dp</dimen>
+    <dimen name="height_common_77">77dp</dimen>
+    <dimen name="height_common_16">16dp</dimen>
+    <dimen name="height_common_15">15dp</dimen>
+    <dimen name="height_common_30">30dp</dimen>
+    <dimen name="height_large_200">200dp</dimen>
+
+    <dimen name="load_more_footer_height_classic">60dp</dimen>
+    <dimen name="height_common_120">120dp</dimen>
+    <dimen name="margin_common_60">60dp</dimen>
+    <dimen name="margin_common_5">5dp</dimen>
+    <dimen name="height_common_180">180dp</dimen>
+    <dimen name="margin_common_90">90dp</dimen>
+    <dimen name="height_common_57">57dp</dimen>
+    <dimen name="margin_common_24">24dp</dimen>
+    <dimen name="height_common_9">9dp</dimen>
+    <dimen name="margin_common_23">23dp</dimen>
+    <dimen name="height_common_60">60dp</dimen>
+    <dimen name="margin_common_35">35dp</dimen>
+    <dimen name="margin_common_67">67dp</dimen>
+    <dimen name="height_large_231">231dp</dimen>
+    <dimen name="margin_small_1">1dp</dimen>
+    <dimen name="margin_common_77">77dp</dimen>
+    <dimen name="heigh_common_21">21dp</dimen>
+
+    <!--视频音量、进度弹层框-->
+    <dimen name="jc_progress_dialog_margin_top">80dp</dimen>
+    <dimen name="jc_volume_dialog_margin_left">24dp</dimen>
+    <dimen name="margin_common_22">22dp</dimen>
+    <dimen name="height_common_26">26dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="height_large_150">150dp</dimen>
+    <dimen name="textsize_common_50">50sp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="height_common_160">160dp</dimen>
+    <dimen name="height_common_27">27dp</dimen>
+    <dimen name="heigh_common_16">16dp</dimen>
+
+
+
+
+
+    <dimen name="pldroid_streaming_activity_horizontal_margin">0dp</dimen>
+    <dimen name="pldroid_streaming_activity_vertical_margin">0dp</dimen>
+    <dimen name="pldroid_streaming_item_padding">12dp</dimen>
+    <dimen name="pldroid_streaming_ring_size">72dp</dimen>
+    <dimen name="pldroid_streaming_ring_width">6dip</dimen>
+    <dimen name="pldroid_streaming_square_corner_radius">8dip</dimen>
+    <dimen name="pldroid_streaming_red_circle_padding">8dip</dimen>
+    <dimen name="pldroid_streaming_red_square_padding">16dip</dimen>
+    <dimen name="pldroid_streaming_streaming_status_padding">50dp</dimen>
+</resources>

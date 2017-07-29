@@ -1,0 +1,71 @@
+<resources>
+
+    <style name="StartTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@drawable/start_background</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+        <!--修改RecyclerView item背景色-->
+        <item name="android:listDivider">@drawable/divider_bg</item>
+    </style>
+
+    <style name="add_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="reg_edit">
+        <item name="android:gravity">bottom</item>
+        <item name="android:paddingLeft">@dimen/margin_common_14</item>
+        <item name="android:drawablePadding">@dimen/margin_common_20</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">#fafafa</item>
+        <item name="android:paddingBottom">@dimen/margin_small_8</item>
+        <item name="android:textColor">@color/black_4d4d4d</item>
+        <item name="android:textColorHint">@color/gray_BFBFBF</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="user_name_ff737e">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#ff737e</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="user_name_ffffff">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="dialog_button" parent="Material.Drawable.Ripple.Wave">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/bg_selector_share_button</item>
+        <item name="android:textColor">@drawable/bg_selector_share_textview</item>
+        <item name="android:textSize">@dimen/textsize_common_18</item>
+    </style>
+
+    <style name="AppTheme.NoBar" parent="AppTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/start_background">
+
+    <ScrollView
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="com.bhtc.huajuan.push.activity.MainActivity">
+
+            <EditText
+                android:id="@+id/input_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="testlive3_24"
+                android:hint="输入房间名" />
+
+            <Button
+                android:id="@+id/websocket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="链接,进入直播间" />
+
+            <Button
+                android:id="@+id/output"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="退出直播间" />
+
+            <Button
+                android:id="@+id/msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户发消息" />
+
+            <Button
+                android:id="@+id/msghj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="客服发消息" />
+
+            <Button
+                android:id="@+id/start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="推送公告" />
+
+            <Button
+                android:id="@+id/msggoods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="推送商品" />
+
+            <Button
+                android:id="@+id/buygoods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="购买商品" />
+
+
+            <Button
+                android:id="@+id/concern"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="关注" />
+
+            <Button
+                android:id="@+id/aite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="消息@" />
+
+            <Button
+                android:id="@+id/qiang_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="抢" />
+
+            <Button
+                android:id="@+id/qiang_hidden"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="抢 隐藏" />
+
+            <Button
+                android:id="@+id/not_take"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="禁言" />
+
+            <!--<LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/not_take"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="禁言" />
+                <EditText
+                    android:id="@+id/block_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>-->
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

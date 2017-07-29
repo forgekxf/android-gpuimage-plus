@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="com.bhtc.huajuan.push.activity.VideoPlayActivity">
+
+    <RelativeLayout
+        android:id="@+id/pop_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_user_text_layout"
+        android:background="#000000">
+
+        <com.pili.pldroid.player.widget.PLVideoView
+            android:id="@+id/PLVideoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true" />
+
+        <include layout="@layout/web_socket_layout" />
+
+        <include layout="@layout/live_header_layout" />
+
+        <ImageView
+            android:id="@+id/refresh_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/refresh"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <include layout="@layout/user_hj_text_list" />
+
+    <LinearLayout
+        android:id="@+id/live_start_time"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/bg_toast"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/toast_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_small_6"
+            android:gravity="center"
+            android:text="@string/please_start"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize_common_16"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/toast_text_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/please_start"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize_common_16" />
+
+    </LinearLayout>
+
+</RelativeLayout>

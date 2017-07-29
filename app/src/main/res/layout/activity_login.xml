@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:orientation="vertical"
+    android:id="@+id/login_bg"
+    tools:context="com.bhtc.huajuan.push.activity.LoginActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="@string/login_push"
+        android:textColor="#000000"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fafafa"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/margin_large_30"
+        android:paddingRight="@dimen/margin_large_30">
+
+        <EditText
+            android:text="18519008624"
+            android:id="@+id/et_reg_phone_number"
+            style="@style/reg_edit"
+            android:layout_marginTop="122dp"
+            android:drawableLeft="@drawable/ic_reg_phone"
+            android:hint="@string/hint_phone_number"
+            android:phoneNumber="true" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_small_1dp"
+            android:background="@color/gray_D0D0D0" />
+
+        <WebView
+            android:id="@+id/login_dialog_wb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_common_18"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_common_10">
+
+            <EditText
+                android:text="123456"
+                android:id="@+id/et_reg_code"
+                style="@style/reg_edit"
+                android:drawableLeft="@drawable/ic_reg_code"
+                android:hint="@string/password"
+                android:phoneNumber="true" />
+
+            <com.rey.material.widget.TextView
+                android:visibility="gone"
+                android:id="@+id/tv_reg_send_code"
+                style="@style/Material.Drawable.Ripple.Wave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/bg_transparent_ff737e_4"
+                android:gravity="center"
+                android:paddingBottom="6dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="6dp"
+                android:text="@string/send_code"
+                android:textColor="@color/red_FF737E"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_small_1dp"
+            android:background="@color/gray_D0D0D0" />
+
+        <com.rey.material.widget.TextView
+            android:id="@+id/tv_login"
+            style="@style/Material.Drawable.Ripple.Wave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/btn_go_money"
+            android:gravity="center"
+            android:paddingBottom="@dimen/margin_common_9"
+            android:paddingTop="@dimen/margin_common_9"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize_common_16" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/login_agree"
+                android:textColor="#858585"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/user_http"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/huajuan_protocol"
+                android:textColor="@color/txt_gray_7C7C7C"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

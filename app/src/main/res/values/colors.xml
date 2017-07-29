@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--app自动生成的三个color-->
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorAccent">#FF4081</color>
+
+    //透明95%的白
+    <color name="alpha_80_black">#cc000000</color>
+    <color name="alpha_30_black">#4c000000</color>
+    <color name="alpha_10_black">#19000000</color>
+    <color name="alpha_40_black">#66000000</color>//%40透明度黑色
+    <color name="alpha_50_black">#7F000000</color>//%50透明度黑色
+    <color name="alpha_04_black">#0A000000</color>//%4透明度黑色
+
+    <color name="white">#ffffff</color>
+    <color name="divide">#ebedec</color>
+    <color name="gray_F0EFE9">#F0EFE9</color>
+    <color name="gray_E0E0E0">#E0E0E0</color>
+    <color name="gray_A6A385">#A6A385</color>
+    <color name="gray_D0D0D0">#D0D0D0</color>
+    <color name="gray_BFBFBF">#BFBFBF</color>
+    <color name="black_282828">#282828</color>
+    <color name="yellow_FF9600">#FF9600</color>
+    <color name="red_F06264">#F06264</color>
+    <color name="red_DF484A">#DF484A</color>
+    <color name="red_F85075">#F85075</color>
+    <color name="red_E50000">#E50000</color>
+    <color name="black_4d4d4d">#4d4d4d</color>
+    <color name="black_4a4a4a">#4a4a4a</color>
+    <color name="gray_F5F4ED">#F5F4ED</color>
+    <color name="red_FF737E">#FF737E</color>
+    <color name="red_FF7F7F">#FF7f7f</color>
+    <color name="red_FFD9DF">#FFD9DF</color>
+    <color name="red_FFCCCC">#FFCCCC</color>
+    <color name="gray_7C7C7C">#7c7c7c</color>
+    <color name="gray_F4F4F4">#F4F4F4</color>
+    <color name="gray_E6E6E6">#E6E6E6</color>
+    <color name="red_FF597D">#FF597D</color>
+    <color name="red_FFE1E1">#FFE1E1</color>
+    <color name="red_FFEBEB">#FFEBEB</color>
+    <color name="red_E64552">#e64552</color>
+    <color name="black_7C7C7C">#7C7C7C</color>
+    <color name="black_A0A0A0">#a0a0a0</color>
+    <color name="blue_A7C8FF">#A7C8FF</color>
+    <color name="bg_coupon_mid">#E7F0FF</color>
+    <color name="div_share">#BFBFBF</color>
+    <color name="blue_69B0FF">#69B0FF</color>
+    <color name="black_262626">#262626</color>
+    <color name="transparent">#00000000</color>
+    <color name="green_68BF60">#68bf60</color>
+    <color name="gray_999999">#999999</color>
+    <color name="gray_4d4d4d">#4d4d4d</color>
+    <color name="gray_d8d8d8">#d8d8d8</color>
+
+    <color name="black">#000000</color>
+    <color name="goods_detail">#f7f9f7f7</color>
+    <color name="blue_A6C6FF">#a6c6ff</color>
+    <color name="gray_b8b39c">#b8b39c</color>
+
+    //加载图片的颜色
+    <color name="view_black_default">#e0e0e0</color>
+    <color name="white_00ffffff">#00ffffff</color>
+    //swipelayout的颜色
+    <color name="hint_reg">#A0A0A0</color>
+    <color name="txt_gray_7C7C7C">#7C7C7C</color>
+    <color name="txt_err">#F06A6C</color>
+    <color name="divide_999999">#999999</color>
+    <color name="white_half_transparent">#FFA6B5</color>
+    <color name="txt_title_fav_normal">#FFA6B5</color>
+    <color name="black_D0D0D0">#D0D0D0</color>
+    <color name="gray_262626">#262626</color>
+    <color name="white_ccffffff">#ccffffff</color>
+    <color name="yellow_ffeabf">#ffeabf</color>
+    <color name="red_ff4d6a">#ff4d6a</color>
+    <color name="gray_7e7e7e">#7e7e7e</color>
+    <color name="green_42a68d">#42a68d</color>
+
+
+
+
+
+
+
+
+
+
+    <color name="pldroid_streaming_white">#fff</color>
+    <color name="pldroid_streaming_red">#f00</color>
+    <color name="pldroid_streaming_yellow">#FFFF00</color>
+
+</resources>

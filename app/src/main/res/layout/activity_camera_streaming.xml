@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/push_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000">
+
+        <com.qiniu.pili.droid.streaming.widget.AspectFrameLayout
+            android:id="@+id/cameraPreview_afl"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:background="#000000">
+
+            <com.bhtc.huajuan.push.rtmp.CameraPreviewFrameView
+                android:id="@+id/cameraPreview_surfaceView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center" />
+
+            <include layout="@layout/focus_indicator" />
+
+        </com.qiniu.pili.droid.streaming.widget.AspectFrameLayout>
+
+        <Button
+            android:id="@+id/camera_switch_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/cd_btn_camera_switcher"
+            android:textColor="@color/pldroid_streaming_white"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/preview_mirror_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/cd_preview_mirror"
+                android:text="Mirror\n(Preview)"
+                android:textColor="@color/pldroid_streaming_white" />
+
+            <Button
+                android:id="@+id/encoding_mirror_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/cd_encoding_mirror"
+                android:text="Mirror\n(Encode)"
+                android:textColor="@color/pldroid_streaming_white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/orientation_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/cd_btn_orientation"
+                android:textColor="@color/pldroid_streaming_white" />
+
+            <Button
+                android:id="@+id/mute_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/cd_btn_mute"
+                android:textColor="@color/pldroid_streaming_white" />
+
+            <Button
+                android:id="@+id/fb_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/cd_btn_fb"
+                android:textColor="@color/pldroid_streaming_white" />
+
+            <Button
+                android:id="@+id/capture_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/cd_btn_capture"
+                android:textColor="@color/pldroid_streaming_white" />
+
+            <Button
+                android:id="@+id/torch_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/cd_btn_torch"
+                android:text="@string/flash_light_on"
+                android:textColor="@color/pldroid_streaming_white"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <include
+            layout="@layout/camera_button_holder"
+            android:visibility="gone" />
+
+        <include layout="@layout/web_socket_layout" />
+
+        <include layout="@layout/live_header_layout" />
+
+        <Button
+            android:id="@+id/input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="send msg"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/refresh_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/refresh"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <include layout="@layout/user_hj_text_list" />
+
+    <LinearLayout
+        android:id="@+id/live_start_time"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/bg_toast"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/toast_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_small_6"
+            android:gravity="center"
+            android:text="@string/please_start"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize_common_16"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/toast_text_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/please_start"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize_common_16" />
+
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/beautyLevel_seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="60dp"
+        android:max="100"
+        android:progress="50"
+        android:visibility="gone" />
+
+    <include layout="@layout/beauti_layout" />
+
+</RelativeLayout>

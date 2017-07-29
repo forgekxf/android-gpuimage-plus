@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/load_more_footer_height_classic">
+
+    <ImageView
+        android:src="@drawable/loading_bottom"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/loading_eyes_tran"
+        android:src="@drawable/loading_eyes"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_centerInParent="true" />
+</RelativeLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingRight="@dimen/margin_small_7"
+                android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/item_live_user_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize_common_10"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>

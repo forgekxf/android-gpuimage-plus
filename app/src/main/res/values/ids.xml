@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--swipetoloadrefresh的属性-->
+    <item name="swipe_target" type="id"/>
+    <item name="swipe_refresh_header" type="id"/>
+    <item name="swipe_load_more_footer" type="id"/>
+    <item name="image_customer_order" type="id"/>
+    <item name="sku_bean" type="id"/>
+    <item name="item_position" type="id"/>
+    <item name="message_image_full" type="id" />
+
+    <item name="goods_state" type="id"/>
+    <item name="render_view" type="id"/>
+    <item name="imageloader_uri" type="id"/>
+    <item name="id_position" type="id"/>
+    <item name="video_id" type="id" />
+    <item name="image_hot_double_ad_id" type="id" />
+    <item name="messageBean_tag_id" type="id" />
+     <item name="user_info_id" type="id" />
+</resources>

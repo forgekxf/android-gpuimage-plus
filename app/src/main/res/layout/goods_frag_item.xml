@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+
+            <ImageView
+                android:id="@+id/goods_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+
+            <ImageView
+                android:id="@+id/goods_image_qiang"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/big_qiang"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/goods_image_state"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#0A000000" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginLeft="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/goods_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="#000000"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/goods_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="#262626"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/goods_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/goods_market"
+                android:textColor="#ff737e"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/goods_market"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:textColor="#c0c0c0"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/goods_qiang"
+                android:visibility="gone"
+                android:layout_width="@dimen/height_common_30"
+                android:layout_height="@dimen/height_common_30"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="@dimen/margin_common_10"
+                android:layout_toLeftOf="@+id/goods_send"
+                android:src="@drawable/small_qiang" />
+
+            <TextView
+                android:id="@+id/goods_send"
+                android:layout_width="65dp"
+                android:layout_height="25dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/bg_red_4"
+                android:gravity="center"
+                android:text="@string/out_send"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp" />
+</LinearLayout>

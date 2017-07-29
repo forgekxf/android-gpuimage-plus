@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/live_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/live_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_small_8"
+            android:layout_marginRight="@dimen/margin_small_5"
+            android:layout_toStartOf="@+id/live_close"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            tools:text="视频名视频名视频名视频名视频名视频名视..." />
+
+        <ImageView
+            android:id="@+id/live_close"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:src="@drawable/cancel" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/live_user_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/live_title_layout"
+        android:background="@drawable/bg_black_right_6"
+        android:paddingBottom="@dimen/margin_common_4"
+        android:paddingLeft="@dimen/margin_small_6"
+        android:paddingRight="@dimen/margin_small_8"
+        android:paddingTop="@dimen/margin_common_4">
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:id="@+id/live_user_header"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            app:siBorderColor="@color/white"
+            app:siBorderWidth="@dimen/margin_small_1" />
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:visibility="gone"
+            android:id="@+id/live_user_header_two"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="@dimen/margin_common_4"
+            android:layout_toEndOf="@+id/live_user_header"
+            app:siBorderColor="@color/white"
+            app:siBorderWidth="@dimen/margin_small_1" />
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:visibility="gone"
+            android:id="@+id/live_user_header_three"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="@dimen/margin_common_4"
+            android:layout_toEndOf="@+id/live_user_header_two"
+            app:siBorderColor="@color/white"
+            app:siBorderWidth="@dimen/margin_small_1" />
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:visibility="gone"
+            android:id="@+id/live_user_header_four"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="@dimen/margin_common_4"
+            android:layout_toEndOf="@+id/live_user_header_three"
+            app:siBorderColor="@color/white"
+            app:siBorderWidth="@dimen/margin_small_1" />
+
+        <LinearLayout
+            android:id="@+id/live_user_detail_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/margin_common_4"
+            android:layout_toEndOf="@+id/live_user_header"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/live_user_name"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/textsize_common_12"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/live_user_store_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/textsize_common_10"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/live_in_user"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/live_title_layout"
+        android:overScrollMode="never" />
+
+    <com.bhtc.huajuan.push.util.RunBackText
+        android:id="@+id/notify_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/live_user_layout"
+        android:layout_marginTop="8dp"
+        android:background="#7bff737e"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:singleLine="true"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:visibility="gone" />
+</RelativeLayout>
