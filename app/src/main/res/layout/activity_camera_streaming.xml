@@ -188,4 +188,18 @@
 
     <include layout="@layout/beauti_layout" />
 
+    <Button
+        android:id="@+id/switch_filter"
+        android:layout_centerInParent="true"
+        android:text="切换滤镜"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <SeekBar
+        android:layout_below="@+id/switch_filter"
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        />
+
 </RelativeLayout>

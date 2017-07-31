@@ -3,7 +3,13 @@ package com.bhtc.huajuan.push.activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.ImageFormat;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.YuvImage;
 import android.hardware.Camera;
+import android.opengl.GLES20;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -52,7 +58,9 @@ import com.qiniu.pili.droid.streaming.SurfaceTextureCallback;
 import org.json.JSONObject;
 
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -61,6 +69,9 @@ import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+
+import us.pinguo.pgskinprettifyengine.PGSkinPrettifyEngine;
+import us.pinguo.prettifyengine.PGPrettifySDK;
 
 public class StreamingBaseActivity extends BaseActivity implements
         View.OnLayoutChangeListener,
@@ -71,6 +82,8 @@ public class StreamingBaseActivity extends BaseActivity implements
         CameraPreviewFrameView.Listener,
         StreamingSessionListener,
         StreamingStateChangedListener {
+
+    private final String SDK_KEY_NEW = "41YLrEs/YvoKmN39OrcOmnd5hJOm7cLjpfRuEhJOdHBIhGnqjA74O5VFl7FS3ZsOSqt24sJ+m5GAkS0X877PisFSUhzAYIWLUMKd6xmcUXm5rSwjTYmu/LBbyPAoJjThjxPVNOboFMi81tCGG6tt7u8hX43IOrC8RwhF+WELnNykhKvaScyuZeYiVBsvIqHlrCEgBk7P3KXBAQOsEcPg8xsVG5+jpzIFvIBH2lt11Cp7qivw6SdZkypBUXH5IXiynuSOHNm8jaPbq+e3V/xlIgCwfmoYSXnkxAx90BzqocvjDermdAriH/l09KoENl99JslyleLHnUfx8mJpAnrHeDsWM9EZp+WyM58wL9sqZc0cmfItz4q/4SR+QOdmQ6RM88U0/u9jbXtyYKXjYDTQNKSS31k937GfAtI8XIMJgHWNd6yfDK382XlQPCZD7/j0DPr+ImkMBUnHj69fN1R6/ZgSynX+rFsqxdmHvQJltlwI1yUu7xlkmkZRApS2t3fDF/7kgH/tFE9UlBUDGuef7u7wH52+jLynXXEey7as12E3O+D+Rw+LmbFgqstamrt73rBQ6NPYFPm6hIRk7DXN7iadYlXGRF3gN0ccax7SGiHz/Y6AAZdCAVqrXxHAAYirSAiCxTNrjgG+31AKpGMJ9ANhavXTTAIjh1EByTN3XZJszV6XENnYrltRVNt7w2rgAIRk7YMwWBlpmSZG8V2C/qvokLCvRUTmYyjJXrLZ67GwxHhmWMFGrYLapzFmvkGFO56RIzvB3ZEnCLvKode7s0wRdpb0tqxw6tlJISY3PsoQEt26XBC21zc1fcS5TLylF7jxELKsztO29vqE3HjElET3wtV9+77gha6DEjNLoI/jqC64Z9NL4FXKWbfiUmsdtZJ1PvMlZZwCo1LI/y/gk8lFdN0rigWnOgT1zH/t1xi2R6OMh6Qd7MGRGE+xsvAQ6F5usCFWvKv4j+RHPHQu8rZgWldxs4zrKbseIqogTcjgjFE+8UxV267iAb7lW2PbBGGVvfMIE6fIZLZH8+SzjGPUdPopyRWLqu4HLomVFCUKdVpeEXJBUsGfiLKkIozwjdnRxl2s/bJ7lh9L1yycrrZt/NVhlifxzAy3yNoZl0tZ9SI9bD9G6XbMsFgk9DPHu/GYWeN8A5VQoejz9NzoVAW5A/zwK+xs4LgYVttN1v67cvgemisPEq1YzfmrAz6RE3FpXV/2wE2xpeYmK7JuP2tLaHkBUYwtU17roI77l++yvJkrBbgkyxtvbECTgBD12QAD/caJBafwCXOCMD8gA5O8/znsdP4R4yIzsFHOLCvsV2wW/r4q4L4m4IULkc76AAnzTFlzwGUsmabJSt/BXTgzKfezJTsQuLaKjiWclDfv5racdFPDAv2id95GWJFrpjVNcA4IlGsbqFYomx4emqtAp8wAcgG1Nb55f1vEZpNrZaKQ7LC4iGD6w+BG/T5n0HQ+w5WMS+rsWmvBCZjwVJDTPBrqy6m1Z0ZcB2nr+x/DRdZVBokPmZ0Q0OTocSkrbQ/LwzZW4ZlBg+v4PgZaRvExogiZpQ/cCqdhkpzXM1AejyLgo20JoBlrBTecUZdwPx97OcJ7wCL6TB3mFac7Qw1a2A97mpN6rGRAH9lzB686WK2swYgYOgx8NrmB0Pwg+9eBmYupezWkF2YPsMDUoW1hNMEUW3uxjTXHSIdRaP4XoFlGM0sD+0GzfIcV2NlCfmYJmAsWeAZYGtyHNPXT+zmYmg4oMtaGsBa/gqpZ6VoFn33a00eZtXb8ZlOwIMs=";
 
     private static final String TAG = "StreamingBaseActivity";
 
@@ -118,7 +131,7 @@ public class StreamingBaseActivity extends BaseActivity implements
     private int mCurrentZoom = 0;
     private int mMaxZoom = 0;
 
-    private FBO mFBO = new FBO();
+    protected FBO mFBO = new FBO();
 
     private ScreenShooter mScreenShooter = new ScreenShooter();
     protected Switcher mSwitcher = new Switcher();
@@ -203,6 +216,7 @@ public class StreamingBaseActivity extends BaseActivity implements
         }
     };
     private boolean onBack = false;
+    private boolean m_bIsFirstFrame;
     protected boolean mSkinChange;
     protected boolean mSoftenChange;
 
@@ -217,6 +231,9 @@ public class StreamingBaseActivity extends BaseActivity implements
         super.onCreate(savedInstanceState);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        prettifySDK = new PGPrettifySDK(this);
+        m_bIsFirstFrame = true;
 
         if (Config.SCREEN_ORIENTATION == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
             mIsEncOrientationPort = true;
@@ -279,6 +296,33 @@ public class StreamingBaseActivity extends BaseActivity implements
         mMicrophoneStreamingSetting.setBluetoothSCOEnabled(false);
 
         initUIs();
+
+
+
+        SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                float intensity = progress / 100.0f;
+                mFBO.mHandler.setFilterIntensity(intensity);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        findViewById(R.id.switch_filter).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mFBO.mHandler.setFilterWithConfig("#unpack @dynamic wave 1");
+            }
+        });
     }
 
     @Override
@@ -286,6 +330,9 @@ public class StreamingBaseActivity extends BaseActivity implements
         onBack = false;
         super.onResume();
         mMediaStreamingManager.resume();
+        if (prettifySDK == null) {
+            prettifySDK = new PGPrettifySDK(this);
+        }
     }
 
     @Override
@@ -296,6 +343,11 @@ public class StreamingBaseActivity extends BaseActivity implements
         mShutterButtonPressed = false;
         mHandler.removeCallbacksAndMessages(null);
         mMediaStreamingManager.pause();
+        if (prettifySDK != null) {
+            prettifySDK.release();
+            prettifySDK = null;
+            m_bIsFirstFrame = true;
+        }
     }
 
     @Override
@@ -412,6 +464,7 @@ public class StreamingBaseActivity extends BaseActivity implements
     @Override
     public void onSurfaceChanged(int width, int height) {
         mFBO.updateSurfaceSize(width, height);
+        m_bIsFirstFrame = true;
     }
 
     @Override
@@ -421,7 +474,45 @@ public class StreamingBaseActivity extends BaseActivity implements
 
     @Override
     public int onDrawFrame(int texId, int texWidth, int texHeight, float[] transformMatrix) {
-        return mFBO.drawFrame(texId, texWidth, texHeight);
+        int newTexId = mFBO.drawFrame(texId, texWidth, texHeight);
+//        saveBitmapByTextureID(newTexId,texWidth,texHeight);   //纹理存储图片，这里正常
+        if (m_bIsFirstFrame) {
+            // Camera360 开发文档
+            // https://sdk.camera360.com/views/beautySDK.html?doc=guide&his=New&platform=Android&version=1.8.1
+            prettifySDK.InitialiseEngine(SDK_KEY_NEW, false);   //是否在 Native 层自己初始化 EGLContext
+            prettifySDK.SetSizeForAdjustInput(texWidth, texHeight);
+            prettifySDK.SetOutputFormat(PGSkinPrettifyEngine.PG_PixelFormat.PG_Pixel_NV21);
+            prettifySDK.SetOutputOrientation(PGSkinPrettifyEngine.PG_Orientation.PG_OrientationNormal);
+            prettifySDK.SetSkinSoftenStrength(mSoftenValue);
+            prettifySDK.SetSkinColor(mPinkValue, mWhitenValue, mReddenValue);
+            prettifySDK.SetSkinSoftenAlgorithm(PGSkinPrettifyEngine.PG_SoftenAlgorithm.PG_SoftenAlgorithmContrast);
+            m_bIsFirstFrame = false;
+        }
+
+        if (mSoftenChange) {
+            prettifySDK.SetSkinSoftenStrength(mSoftenValue);//磨皮强度
+            mSoftenChange = false;
+        }
+        if (mSkinChange) {
+            prettifySDK.SetSkinColor(mPinkValue, mWhitenValue, mReddenValue);//美颜参数
+            mSkinChange = false;
+        }
+        prettifySDK.SetInputFrameByTexture(newTexId, texWidth, texHeight,1);  //接收内部纹理
+//        prettifySDK.SetInputFrameByTexture(texId, texWidth, texHeight);   //接收外部纹理
+
+        prettifySDK.RunEngine();
+        prettifySDK.GetOutputToScreen(texWidth, texHeight);
+
+        buffer = prettifySDK.SkinSoftenGetResult();
+        if (buffer != null) {
+            lock.lock();
+            buffer.clear();
+            bytes2 = new byte[buffer.capacity()];
+            buffer.get(bytes2, 0, bytes2.length);
+            lock.unlock();
+        }
+//        saveBitmapByTextureID(prettifySDK.GetOutputTextureID(),texWidth,texHeight);   //纹理存储图片
+        return prettifySDK.GetOutputTextureID();  //返回处理过的纹理ID
     }
 
     protected float mPinkValueDefault = 0.24f;
@@ -441,6 +532,7 @@ public class StreamingBaseActivity extends BaseActivity implements
     protected float mFilterTwo = 0.1f;
     protected float mFilterThree = 0.45f;
 
+    protected PGPrettifySDK prettifySDK;
     ByteBuffer buffer;
     byte[] bytes2;
     Lock lock = new ReentrantLock();
@@ -900,5 +992,75 @@ public class StreamingBaseActivity extends BaseActivity implements
                 setShutterButtonPressed(mShutterButtonPressed);
             }
         }).start();
+    }
+
+
+
+
+
+    public static void saveBitmapByTextureID(int tempTextId, int w, int h){
+        int previewBufferSize =  w * h * 4;
+        byte[] mPreviewBuffer = new byte[previewBufferSize];
+        int[] frame = new int[1];
+        GLES20.glGenFramebuffers(1, frame, 0);
+        GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, frame[0]);
+        GLES20.glFramebufferTexture2D(GLES20.GL_FRAMEBUFFER, GLES20.GL_COLOR_ATTACHMENT0, GLES20.GL_TEXTURE_2D, tempTextId, 0);
+
+        ByteBuffer buffer = ByteBuffer.allocate(w * h * 4);
+        GLES20.glReadPixels(0, 0, w, h, GLES20.GL_RGBA, GLES20.GL_UNSIGNED_BYTE, buffer);
+        GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);
+        GLES20.glDeleteFramebuffers(1, frame, 0);
+
+        byte[] output = new byte[w * h * 4];
+        buffer.get(output, 0, output.length);
+        System.arraycopy(output, 0, mPreviewBuffer, 0, output.length);
+
+        // use Bitmap.Config.ARGB_8888 instead of type is OK
+        Bitmap stitchBmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+        stitchBmp.copyPixelsFromBuffer(ByteBuffer.wrap(mPreviewBuffer));
+        int rotate = 0;
+        Matrix matrix = new Matrix();
+        matrix.postRotate(rotate);
+        Bitmap bitmap = Bitmap.createBitmap(stitchBmp, 0, 0, w, h, matrix, true);
+        if (bitmap != null)
+            saveBitmap(bitmap);
+    }
+
+    public static void saveBitmapByData(byte[] data,int width,int height){
+        YuvImage image = new YuvImage(data, ImageFormat.NV21, width, height, null);
+        if (image != null) {
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            image.compressToJpeg(new Rect(0, 0, width, height), 80, stream);
+            Bitmap bmp = BitmapFactory.decodeByteArray(stream.toByteArray(), 0, stream.size());
+            //因为图片会放生旋转，因此要对图片进行旋转到和手机在一个方向上
+            Matrix matrix = new Matrix();
+            matrix.postRotate(90);
+            Bitmap nbmp2 = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), matrix, true);
+            saveBitmap(nbmp2);
+            try {
+                stream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void saveBitmap(Bitmap bitmap) {
+        if (bitmap == null)
+            return;
+        File f = new File("/sdcard/", "a_test.jpg");
+
+        try {
+            FileOutputStream out = new FileOutputStream(f);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+            out.flush();
+            out.close();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 }
